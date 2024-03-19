@@ -1,5 +1,8 @@
+'use client'
 import React, { useCallback, useRef, useState } from 'react';
 import { Map, MapRef, ViewStateChangeEvent } from 'react-map-gl';
+import styled from 'styled-components';
+
 
 export type LandingPageProps = {};
 
@@ -24,7 +27,7 @@ export default function LandingPage(props: LandingPageProps) {
   }, [map]);
 
   return (
-    <div ref={mapContainer}>
+    <MapContainer ref={mapContainer}>
       <Map
         ref={map}
         initialViewState={{ latitude: lat, longitude: lng, zoom: zoom }}
@@ -33,6 +36,11 @@ export default function LandingPage(props: LandingPageProps) {
         mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN as string}
         attributionControl={false}
       ></Map>
-    </div>
+    </MapContainer>
   );
 }
+
+const MapContainer = styled.div`
+  max-height: 100vh;
+  height: 100vh;
+`;
