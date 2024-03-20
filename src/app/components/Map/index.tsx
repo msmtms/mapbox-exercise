@@ -9,7 +9,7 @@ const NEWALLA_COORDS = {
   longitude: -97.16794257900781
 };
 
-export default function LandingPage() {
+export default function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<MapRef>(null);
   const [lng, setLng] = useState(NEWALLA_COORDS.longitude);
